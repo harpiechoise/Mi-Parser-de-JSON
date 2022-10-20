@@ -157,7 +157,7 @@ Si el carácter es una comilla doble, quiere decir que es una cadena, por lo que
 ```
 
 Para el caso de los números, a pesar de que no tenemos un indicador específico, sabemos que nos tenemos que detener en presencia de un espacio, un final de lista o final de objeto. Con el fin de no alterar nada para los siguientes métodos, antes de retornar el valor tipificado como un número, decrementaremos el contador en 1 y dejaremos el conteo de puntos decimales de nuevo en cero.
-
+ 
 ```python
     def lex_kw(self, sequence=""):
         
