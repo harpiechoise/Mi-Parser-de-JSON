@@ -46,7 +46,7 @@ class Lexer:
             self.idx+=1
             return curr_char
     
-    def decrase(self):
+    def decrease(self):
         # If we want to set the cursor back
         if self.idx <= 0:
             raise ReferenceError("The index cannot be < 0")
@@ -77,10 +77,10 @@ class Lexer:
                 self.token.append(Token(TT_RPAREN, curr_char))
 
             elif curr_char.lower() in "0123456789":
-                self.decrase()
+                self.decrease()
                 self.token.append(self.lex_number())
             else:
-                self.decrase()
+                self.decrease()
                 # If the curr_char not in all of this acepted sequences
                 # we try to parse a true, false, null kw
                 self.token.append(self.lex_kw())
@@ -95,7 +95,7 @@ class Lexer:
             return self.lex_kw(sequence=sequence+curr_char)
         else:
             # We try to parse
-            self.decrase()
+            self.decrease()
             if sequence == "true":
                 return Token(TT_BOOL, sequence)
             elif sequence == "false":
@@ -127,7 +127,7 @@ class Lexer:
             return self.lex_number(sequence=sequence+curr_char)
         
         elif curr_char in " \n,}]":
-            self.decrase()
+            self.decrease()
             self.point_count = 0
             return Token(TT_NUMBER, sequence)
 
