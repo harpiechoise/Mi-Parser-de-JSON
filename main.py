@@ -27,7 +27,7 @@ class Lexer:
         self.input_string = input_string
         # Index increments by one on call of the __advance method
         self.idx = 0
-        # The las character is the las index in the string
+        # The last character is the last index in the string
         self.last_character = len(input_string)-1
         # Tokens!
         self.token = []
@@ -119,7 +119,7 @@ class Lexer:
         curr_char = self.advance()
         # if not in <whitespace> comma, line-skip or ] } 
         # We just parse the sequence
-        if curr_char.lower() in "123456789.":
+        if curr_char.lower() in "0123456789.":
             if curr_char == ".":
                 self.point_count += 1
                 if self.point_count > 1:
