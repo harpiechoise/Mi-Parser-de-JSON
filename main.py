@@ -243,6 +243,7 @@ class Parser:
     def decrease(self):
         self.idx -= 1
 
+
     def parse(self):
         try:
             # Here is where the magic begin
